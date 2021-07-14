@@ -8,9 +8,9 @@ import cx from 'classnames';
 import styles from './form-group.module.scss';
 
 type Props = {
-  for: string,
-  label: string,
-  error: string,
+  for?: string,
+  label?: string,
+  error?: string,
   children?: any,
   className?: any,
   childrenPos?: ('after' | 'before'),
@@ -31,7 +31,7 @@ export const FormGroup = ({
       {...rest}
       className={cx(
         styles.formGroupControl,
-        { [styles[childrenPos]]: childrenPos },
+        { [styles[childrenPos || '']]: childrenPos },
         className,
       )}
     >

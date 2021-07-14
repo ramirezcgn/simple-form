@@ -97,4 +97,11 @@
       }
     }
   }
+
+  &.error {
+    .dropdownToggle {
+      border-color: #EE90A2;
+      background-color: #EFE0E0;
+    }
+  }
 }

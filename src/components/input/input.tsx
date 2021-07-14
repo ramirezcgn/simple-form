@@ -19,7 +19,7 @@ export const Input = ({
       className={cx(
         'control-wrapper',
         styles.inputControl,
-        { error },
+        { [styles.error]: error },
         className,
       )}
     >

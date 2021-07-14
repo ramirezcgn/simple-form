@@ -19,7 +19,7 @@ export const Checkbox = ({
       className={cx(
         'control-wrapper',
         styles.checkboxControl,
-        { error },
+        { [styles.error]: error },
         className,
       )}
     >

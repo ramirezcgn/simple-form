@@ -73,7 +73,7 @@ export const Dropdown = ({
       className={cx(
         'control-wrapper',
         styles.dropdownControl,
-        { error },
+        { [styles.error]: error },
         className,
       )}
     >

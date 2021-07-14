@@ -23,9 +23,11 @@
     &:disabled {
       border-color: #989898;
       background-color: #F2F2F2;
-    }
+    } 
+  }
 
-    &.error {
+  &.error {
+    input {
       border-color: #EE90A2;
       background-color: #EFE0E0;
     }
