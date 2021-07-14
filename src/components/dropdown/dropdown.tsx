@@ -69,57 +69,64 @@ export const Dropdown = ({
   )) || { text: '' }, [items, selected]);
 
   return (
-    <ReactstrapDropdown
+    <div
       className={cx(
         'control-wrapper',
         styles.dropdownControl,
         { error },
         className,
       )}
-      isOpen={dropdownOpen}
-      toggle={toggle}
     >
-      <DropdownToggle id={id} className={styles.dropdownToggle} color="" caret>
-        <span className={styles.buttonText}>{title}</span>
-        <Input {...rest} value={selected} type="hidden" />
-      </DropdownToggle>
-      <DropdownMenu
-        // right={menuRightAligned}
-        modifiers={{
-          setStyles: {
-            enabled: true,
-            order: 890,
-            fn: (data: any) => {
-              return {
-                ...data,
-                styles: {
-                  ...data.styles,
-                  overflow: 'auto',
-                  maxWidth: '95vw',
-                },
-              };
-            },
-          },
-        }}
-        // flip={!menuDisableFlip}
+      <ReactstrapDropdown
+        className={cx(styles.dropdown, {
+          [styles.show]: dropdownOpen,
+        })}
+        isOpen={dropdownOpen}
+        toggle={toggle}
       >
-        <CustomScroll heightRelativeToParent="100%">
-          {items
-            .filter(({ placeholder }) => !placeholder)
-            .map<any>(({ text, value }) => (
-              <DropdownItem
-                className={cx(styles.dropdownItem, {
-                  [styles.selected]: selected === value,
-                })}
-                onClick={onClick}
-                data-value={value}
-                key={value}
-              >
-                {text}
-              </DropdownItem>
-            ))}
-        </CustomScroll>
-      </DropdownMenu>
-    </ReactstrapDropdown>
+        <DropdownToggle id={id} className={styles.dropdownToggle} color="" caret>
+          <span className={styles.buttonText}>{title}</span>
+          <Input {...rest} value={selected} type="hidden" />
+        </DropdownToggle>
+        <DropdownMenu
+          className={styles.dropdownMenu}
+          // right={menuRightAligned}
+          modifiers={{
+            setStyles: {
+              enabled: true,
+              order: 890,
+              fn: (data: any) => {
+                return {
+                  ...data,
+                  styles: {
+                    ...data.styles,
+                    overflow: 'auto',
+                    maxWidth: '95vw',
+                  },
+                };
+              },
+            },
+          }}
+          // flip={!menuDisableFlip}
+        >
+          <CustomScroll heightRelativeToParent="100%">
+            {items
+              .filter(({ placeholder }) => !placeholder)
+              .map<any>(({ text, value }) => (
+                <DropdownItem
+                  className={cx(styles.dropdownItem, {
+                    [styles.selected]: selected === value,
+                  })}
+                  onClick={onClick}
+                  data-value={value}
+                  key={value}
+                >
+                  {text}
+                </DropdownItem>
+              ))}
+          </CustomScroll>
+        </DropdownMenu>
+      </ReactstrapDropdown>
+    </div>
   );
 };

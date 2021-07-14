@@ -1,33 +1,100 @@
 .dropdownControl {
-  .dropdownToggle {
-    background-color: white;
-    color: black;
-    border-radius: 0;
-    border: 3px solid #CFE7E5;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    padding: 13px 16px;
-    box-shadow: 0px 2px 4px 0px grey;
+  .dropdown {
+    display: inline-block;
 
-    &:focus-visible {
-      outline: none;
-    }
-
-    &:active,
-    &:focus {
-      border-color: #A1D2CE;
+    .dropdownToggle {
+      background-color: white;
+      color: black;
+      border-radius: 0;
+      border: 3px solid #CFE7E5;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 2px;
+      padding: 13px 40px 13px 16px;
+      text-align: left;
+      width: 200px;
+      position: relative;
       box-shadow: 0px 2px 4px 0px grey;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &:active,
+      &:focus {
+        border-color: #A1D2CE;
+        box-shadow: 0px 2px 4px 0px grey;
+      }
+
+      &:disabled {
+        border-color: #989898;
+        background-color: #F2F2F2;
+      }
+
+      &.error {
+        border-color: #EE90A2;
+        background-color: #EFE0E0;
+      }
+
+      &::after {
+        background-image: url('../../images/text-expand-arrow.svg');
+        width: 12px;
+        height: 18px;
+        border: 0;
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: 16px;
+        top: 13px;
+        margin: 0;
+      }
     }
 
-    &:disabled {
-      border-color: #989898;
-      background-color: #F2F2F2;
+    &.show {
+      box-shadow: 0px 2px 4px 0px grey;
+
+      .dropdownToggle {
+        border-bottom: transparent !important;
+
+        &::after {
+          transform: rotate(90deg);
+          width: 8px;
+          height: 12px;
+          top: 18px;
+          right: 20px;
+        }
+      }
     }
 
-    &.error {
-      border-color: #EE90A2;
-      background-color: #EFE0E0;
+    .dropdownMenu {
+      border-radius: 0;
+      width: 100%;
+      border-radius: 0;
+      width: 100%;
+      box-shadow: 0px 2px 4px 0px grey;
+      border: 3px solid #A1D2CE;
+      border-top: transparent;
+      overflow-x: hidden !important;
+      padding: 0;
+
+      .dropdownItem {
+        border-top: 1px solid #A1D2CE;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 2px;
+        padding: 13px 40px 13px 16px;
+
+        &.selected {
+          color: black;
+          font-weight: bold;
+        }
+
+        &:hover,
+        &:active {
+          background-color: #E1F0EF;
+        }
+      }
     }
   }
 }
