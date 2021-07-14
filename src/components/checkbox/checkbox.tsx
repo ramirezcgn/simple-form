@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'reactstrap';
 import cx from 'classnames';
-import styles from './checkbox.scss';
+import styles from './checkbox.module.scss';
 
 type Props = {
   className?: any,

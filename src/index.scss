@@ -9,16 +9,21 @@ body, p {
   line-height: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("images/texture.png");
+}
+
+body {
+  background-image: url("./images/texture.png");
 }
 
 h1 {
   font-family: "Open Sans", 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
+  letter-spacing: 0.1px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
   line-height: 26.4px;
+  margin-bottom: 18px;
 }
 
 h3 {
@@ -48,6 +53,17 @@ pre {
   line-height: 18.5714px;
 }
 
+.container {
+  max-width: 852px;
+  padding-top: 60px;
+}
+
 .invalid-feedback {
   display: block;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: .1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

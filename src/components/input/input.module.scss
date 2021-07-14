@@ -1,0 +1,33 @@
+.inputControl {
+  input {
+    background-color: white;
+    color: black;
+    border-radius: 0;
+    border: 3px solid #CFE7E5;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 13px 16px;
+    box-shadow: 0px 2px 4px 0px grey;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:active,
+    &:focus {
+      border-color: #A1D2CE;
+      box-shadow: 0px 2px 4px 0px grey;
+    }
+
+    &:disabled {
+      border-color: #989898;
+      background-color: #F2F2F2;
+    }
+
+    &.error {
+      border-color: #EE90A2;
+      background-color: #EFE0E0;
+    }
+  }
+}

@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import CustomScroll from 'react-custom-scroll';
 import cx from 'classnames';
-import styles from './dropdown.scss';
+import styles from './dropdown.module.scss';
 
 export type DropdownOption = {
   text: string,
@@ -17,6 +17,7 @@ export type DropdownOption = {
 };
 
 type Props = {
+  id?: string,
   items: DropdownOption[],
   onSelect?: Function,
   className?: any,
@@ -26,6 +27,7 @@ type Props = {
 };
 
 export const Dropdown = ({
+  id,
   items,
   onSelect,
   className = '',
@@ -77,7 +79,7 @@ export const Dropdown = ({
       isOpen={dropdownOpen}
       toggle={toggle}
     >
-      <DropdownToggle color="" caret>
+      <DropdownToggle id={id} className={styles.dropdownToggle} color="" caret>
         <span className={styles.buttonText}>{title}</span>
         <Input {...rest} value={selected} type="hidden" />
       </DropdownToggle>

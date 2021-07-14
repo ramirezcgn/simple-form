@@ -1,0 +1,26 @@
+.formGroupControl {
+  margin-bottom: 28px;
+
+  label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+
+    .labelText {
+      display: inline-block;
+    }
+  }
+
+  &.before,
+  &.after {
+    margin-bottom: 2px;
+
+    label {
+      margin-top: 10px;
+
+      .labelText {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

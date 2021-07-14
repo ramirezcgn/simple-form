@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input as ReactStrapInput } from 'reactstrap';
 import cx from 'classnames';
-import styles from './input.scss';
+import styles from './input.module.scss';
 
 type Props = {
   className?: any,

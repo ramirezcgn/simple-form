@@ -4,13 +4,12 @@ import {
   Row,
   Col,
   Form,
-  Label,
-  FormGroup,
   FormFeedback,
 } from 'reactstrap';
 import { xor } from 'lodash';
 import axios from 'axios';
 import {
+  FormGroup,
   Input,
   Dropdown,
   Checkbox,
@@ -82,7 +81,7 @@ const initialErrors: FormErrors = {
     error: '',
   },
   fieldName: {
-    title: 'More than one checkbox selected',
+    title: 'At least one checkbox selected',
     type: 'checkbox',
     error: '',
   },
@@ -225,15 +224,13 @@ export default () => {
               <p>*Indicates Required Field</p>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <FormGroup>
-                {formErrors.firstName.error && (
-                  <FormFeedback>
-                    {formErrors.firstName.error}
-                  </FormFeedback>
-                )}
-                <Label for="firstName">First Name*</Label>
+          <Row className="align-items-end">
+            <Col md={6}>
+              <FormGroup
+                for="firstName"
+                label="First Name*"
+                error={formErrors.firstName.error}
+              >
                 <Input
                   id="firstName"
                   type="text"
@@ -245,14 +242,12 @@ export default () => {
                 />
               </FormGroup>
             </Col>
-            <Col>
-              <FormGroup>
-                {formErrors.lastName.error && (
-                  <FormFeedback>
-                    {formErrors.lastName.error}
-                  </FormFeedback>
-                )}
-                <Label for="lastName">Last Name*</Label>
+            <Col md={6}>
+              <FormGroup
+                for="lastName"
+                label="Last Name*"
+                error={formErrors.lastName.error}
+              >
                 <Input
                   id="lastName"
                   type="text"
@@ -265,15 +260,13 @@ export default () => {
               </FormGroup>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <FormGroup>
-                {formErrors.email.error && (
-                  <FormFeedback>
-                    {formErrors.email.error}
-                  </FormFeedback>
-                )}
-                <Label for="email">Email Address*</Label>
+          <Row className="align-items-end">
+            <Col md={6}>
+              <FormGroup
+                for="email"
+                label="Email Address*"
+                error={formErrors.email.error}
+              >
                 <Input
                   id="email"
                   type="email"
@@ -285,9 +278,11 @@ export default () => {
                 />
               </FormGroup>
             </Col>
-            <Col>
-              <FormGroup>
-                <Label for="org">Organization</Label>
+            <Col md={6}>
+              <FormGroup
+                for="org"
+                label="Organization"
+              >
                 <Input
                   id="org"
                   type="text"
@@ -298,81 +293,84 @@ export default () => {
               </FormGroup>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <FormGroup>
-                {formErrors.euResident.error && (
-                  <FormFeedback>
-                    {formErrors.euResident.error}
-                  </FormFeedback>
-                )}
-                <Label for="euResident">
-                  EU Resident*
-                  <Dropdown
-                    id="euResident"
-                    name="euResident"
-                    items={residentItems}
-                    selected={euResident}
-                    error={formErrors.euResident.error}
-                    onSelect={onSelect}
-                    required
-                  />
-                </Label>
+          <Row className="align-items-end">
+            <Col md={6}>
+              <FormGroup
+                for="euResident"
+                label="EU Resident*"
+                error={formErrors.euResident.error}
+              >
+                <Dropdown
+                  id="euResident"
+                  name="euResident"
+                  items={residentItems}
+                  selected={euResident}
+                  error={formErrors.euResident.error}
+                  onSelect={onSelect}
+                  required
+                />
               </FormGroup>
             </Col>
           </Row>
           <Row>
             <Col>
-              <FormGroup>
-                {formErrors.fieldName.error && (
-                  <FormFeedback>
-                    {formErrors.fieldName.error}
-                  </FormFeedback>
-                )}
-                <Label for="advances">
-                  <Checkbox
-                    id="advances"
-                    name="fieldName"
-                    value="advances"
-                    checked={fieldName.includes('advances')}
-                    error={formErrors.fieldName.error}
-                    onChange={onChange}
-                    required
-                  />
-                  Advances
-                </Label>
+              {formErrors.fieldName.error && (
+                <FormFeedback>
+                  {formErrors.fieldName.error}
+                </FormFeedback>
+              )}
+            </Col>
+          </Row>
+          <Row className="align-items-end">
+            <Col md={6}>
+              <FormGroup
+                for="advances"
+                label="Advances"
+                childrenPos="before"
+              >
+                <Checkbox
+                  id="advances"
+                  name="fieldName"
+                  value="advances"
+                  checked={fieldName.includes('advances')}
+                  error={formErrors.fieldName.error}
+                  onChange={onChange}
+                  required
+                />
               </FormGroup>
             </Col>
-            <Col>
-              <FormGroup>
-                <Label for="alerts">
-                  <Checkbox
-                    id="alerts"
-                    name="fieldName"
-                    value="alerts"
-                    checked={fieldName.includes('alerts')}
-                    error={formErrors.fieldName}
-                    onChange={onChange}
-                  />
-                  Alerts
-                </Label>
+            <Col md={6}>
+              <FormGroup
+                for="alerts"
+                label="Alerts"
+                childrenPos="before"
+              >
+                <Checkbox
+                  id="alerts"
+                  name="fieldName"
+                  value="alerts"
+                  checked={fieldName.includes('alerts')}
+                  error={formErrors.fieldName}
+                  onChange={onChange}
+                />
               </FormGroup>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <FormGroup>
-                <Label for="other">
-                  <Checkbox
-                    id="other"
-                    name="fieldName"
-                    value="other"
-                    checked={fieldName.includes('other')}
-                    error={formErrors.fieldName}
-                    onChange={onChange}
-                  />
-                  Other communication
-                </Label>
+          <Row className="align-items-end">
+            <Col md={6}>
+              <FormGroup
+                for="other"
+                label="Other communications"
+                childrenPos="before"
+              >
+                <Checkbox
+                  id="other"
+                  name="fieldName"
+                  value="other"
+                  checked={fieldName.includes('other')}
+                  error={formErrors.fieldName}
+                  onChange={onChange}
+                />
               </FormGroup>
             </Col>
           </Row>
