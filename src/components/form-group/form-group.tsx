@@ -14,6 +14,7 @@ type Props = {
   children?: any,
   className?: any,
   childrenPos?: ('after' | 'before'),
+  [x:string]: any,
 };
 
 export const FormGroup = ({
@@ -23,9 +24,11 @@ export const FormGroup = ({
   children,
   className = '',
   childrenPos,
+  ...rest
 }: Props) => {
   return (
     <ReactStrapFormGroup
+      {...rest}
       className={cx(
         styles.formGroupControl,
         { [styles[childrenPos]]: childrenPos },
@@ -37,11 +40,13 @@ export const FormGroup = ({
           {error}
         </FormFeedback>
       )}
-      <Label for={htmlFor}>
-        {childrenPos === 'before' && children}
-        <span className={styles.labelText}>{label}</span>
-        {childrenPos === 'after' && children}
-      </Label>
+      {label && (
+        <Label for={htmlFor}>
+          {childrenPos === 'before' && children}
+          <span className={styles.labelText}>{label}</span>
+          {childrenPos === 'after' && children}
+        </Label>
+      )}
       {!childrenPos && children}
     </ReactStrapFormGroup>
   );

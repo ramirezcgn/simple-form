@@ -209,7 +209,7 @@ export default () => {
   } = formItems;
 
   return (
-    <Container className={styles.appContainer}>
+    <Container className={styles.appContainer} tag="main">
       {(submitStatus !== undefined && submitStatus.status !== 'error') ? (
         <Row>
           <Col>
@@ -296,9 +296,9 @@ export default () => {
           <Row className="align-items-end">
             <Col md={6}>
               <FormGroup
-                for="euResident"
                 label="EU Resident*"
                 error={formErrors.euResident.error}
+                childrenPos="after"
               >
                 <Dropdown
                   id="euResident"
@@ -321,56 +321,63 @@ export default () => {
               )}
             </Col>
           </Row>
-          <Row className="align-items-end">
-            <Col md={6}>
-              <FormGroup
-                for="advances"
-                label="Advances"
-                childrenPos="before"
-              >
-                <Checkbox
-                  id="advances"
-                  name="fieldName"
-                  value="advances"
-                  checked={fieldName.includes('advances')}
-                  error={formErrors.fieldName.error}
-                  onChange={onChange}
-                  required
-                />
-              </FormGroup>
-            </Col>
-            <Col md={6}>
-              <FormGroup
-                for="alerts"
-                label="Alerts"
-                childrenPos="before"
-              >
-                <Checkbox
-                  id="alerts"
-                  name="fieldName"
-                  value="alerts"
-                  checked={fieldName.includes('alerts')}
-                  error={formErrors.fieldName}
-                  onChange={onChange}
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row className="align-items-end">
-            <Col md={6}>
-              <FormGroup
-                for="other"
-                label="Other communications"
-                childrenPos="before"
-              >
-                <Checkbox
-                  id="other"
-                  name="fieldName"
-                  value="other"
-                  checked={fieldName.includes('other')}
-                  error={formErrors.fieldName}
-                  onChange={onChange}
-                />
+          <Row>
+            <Col>
+              <FormGroup tag="fieldset">
+                <legend className="sr-only">Radio Buttons Group</legend>
+                <Row className="align-items-end">
+                  <Col md={6}>
+                    <FormGroup
+                      for="advances"
+                      label="Advances"
+                      childrenPos="before"
+                    >
+                      <Checkbox
+                        id="advances"
+                        name="fieldName"
+                        value="advances"
+                        checked={fieldName.includes('advances')}
+                        error={formErrors.fieldName.error}
+                        onChange={onChange}
+                        required
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={6}>
+                    <FormGroup
+                      for="alerts"
+                      label="Alerts"
+                      childrenPos="before"
+                    >
+                      <Checkbox
+                        id="alerts"
+                        name="fieldName"
+                        value="alerts"
+                        checked={fieldName.includes('alerts')}
+                        error={formErrors.fieldName}
+                        onChange={onChange}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row className="align-items-end">
+                  <Col md={6}>
+                    <FormGroup
+                      for="other"
+                      label="Other communications"
+                      childrenPos="before"
+                    >
+                      <Checkbox
+                        id="other"
+                        name="fieldName"
+                        value="other"
+                        checked={fieldName.includes('other')}
+                        error={formErrors.fieldName}
+                        onChange={onChange}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
               </FormGroup>
             </Col>
           </Row>
