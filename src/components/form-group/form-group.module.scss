@@ -11,13 +11,22 @@
     }
   }
 
-  &.before,
-  &.after {
+  &.before {
     margin-bottom: 2px;
 
     label {
       margin-top: 10px;
 
+      .labelText {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &.after {
+    margin-bottom: 20px;
+
+    label {
       .labelText {
         margin-bottom: 10px;
       }
