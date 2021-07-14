@@ -17,7 +17,7 @@ import {
   Button,
 } from './components';
 import type { DropdownOption } from './components';
-import './App.scss';
+import styles from './App.module.scss';
 
 interface LooseObject {
   [key: string]: any,
@@ -210,15 +210,21 @@ export default () => {
   } = formItems;
 
   return (
-    <Container className="Form">
+    <Container className={styles.appContainer}>
       {(submitStatus !== undefined && submitStatus.status !== 'error') ? (
         <Row>
           <Col>
-            <h3>{submitStatus.message}</h3>
+            <h1>{submitStatus.message}</h1>
           </Col>
         </Row>
       ) : (
         <Form>
+          <Row>
+            <Col>
+              <h1>Sign up for email updates</h1>
+              <p>*Indicates Required Field</p>
+            </Col>
+          </Row>
           <Row>
             <Col>
               <FormGroup>
