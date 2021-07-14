@@ -354,7 +354,7 @@ export default () => {
                         name="fieldName"
                         value="alerts"
                         checked={fieldName.includes('alerts')}
-                        error={formErrors.fieldName}
+                        error={formErrors.fieldName.error}
                         onChange={onChange}
                       />
                     </FormGroup>
@@ -372,7 +372,7 @@ export default () => {
                         name="fieldName"
                         value="other"
                         checked={fieldName.includes('other')}
-                        error={formErrors.fieldName}
+                        error={formErrors.fieldName.error}
                         onChange={onChange}
                       />
                     </FormGroup>
